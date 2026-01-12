@@ -3,120 +3,334 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
 
-  <title>Fatih KARTAL – Uygulama Geliştirici</title>
-  <meta name="description" content="fthkrtl tarafından geliştirilen mobil uygulamalar için resmi destek ve gizlilik sayfası." />
+  <title>fthkrtl • Mobil Uygulama Geliştirici</title>
+  <meta name="description" content="fthkrtl — mobil uygulama geliştirici. Uygulama desteği, iletişim ve gizlilik politikası." />
   <meta name="robots" content="index,follow" />
-
-  <!-- Google için net meta -->
   <meta name="author" content="fthkrtl" />
   <meta name="contact" content="fthkrtl.35@gmail.com" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="fthkrtl • Mobil Uygulama Geliştirici" />
+  <meta property="og:description" content="Uygulama desteği, iletişim ve gizlilik politikası." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fthkrtl.github.io/" />
+
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: #f7f8fb;
-      color: #1c1c1c;
-      line-height: 1.6;
+    :root{
+      --bg:#070b14;
+      --card:rgba(11,18,32,.78);
+      --text:#eaf0ff;
+      --muted:#9fb0d6;
+      --line:rgba(255,255,255,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --a1:#6aa6ff;
+      --a2:#9b7bff;
+      --a3:#2ef0c7;
     }
-    .wrap {
-      max-width: 820px;
-      margin: auto;
-      padding: 32px 16px 60px;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 650px at 18% 10%, rgba(106,166,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 85% 0%, rgba(155,123,255,.20), transparent 55%),
+        radial-gradient(1000px 650px at 70% 95%, rgba(46,240,199,.10), transparent 60%),
+        var(--bg);
+      line-height:1.55;
     }
-    h1, h2 {
-      color: #0b1220;
+    a{color:inherit;text-decoration:none}
+    a.underline{color:var(--a1); text-decoration:underline}
+    .wrap{max-width:1040px;margin:0 auto;padding:34px 18px 70px}
+    .top{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+      margin-bottom:16px;
     }
-    h1 {
-      font-size: 26px;
-      margin-bottom: 8px;
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:52px;height:52px;border-radius:16px;
+      background:linear-gradient(135deg, rgba(106,166,255,.95), rgba(155,123,255,.9));
+      box-shadow:0 16px 40px rgba(106,166,255,.15);
+      display:grid;place-items:center;flex:0 0 auto;
     }
-    h2 {
-      margin-top: 40px;
-      font-size: 20px;
+    .logo span{font-weight:900;color:#081020;font-size:18px;letter-spacing:.6px}
+    h1{margin:0;font-size:22px;letter-spacing:.2px}
+    .sub{margin:2px 0 0;color:var(--muted);font-size:13.5px;max-width:60ch}
+    .badge{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
     }
-    p {
-      margin: 8px 0;
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg,var(--a1),var(--a2));
+      box-shadow:0 0 0 4px rgba(106,166,255,.14);
     }
-    .box {
-      background: #ffffff;
-      border: 1px solid #e2e5ec;
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 16px;
+
+    .hero{
+      border:1px solid var(--line);
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-radius:calc(var(--radius) + 6px);
+      box-shadow:var(--shadow);
+      padding:18px;
+      backdrop-filter: blur(10px);
+      overflow:hidden;
+      position:relative;
     }
-    a {
-      color: #2563eb;
-      text-decoration: none;
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 240px at 20% 10%, rgba(106,166,255,.20), transparent 60%),
+        radial-gradient(600px 240px at 80% 0%, rgba(155,123,255,.18), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
     }
-    a:hover {
-      text-decoration: underline;
+    .hero > *{position:relative}
+    .hero h2{margin:0 0 6px;font-size:18px}
+    .hero p{margin:0;color:var(--muted)}
+    .grid{
+      display:grid;grid-template-columns: 1.15fr .85fr;gap:16px;
+      margin-top:16px;
     }
-    footer {
-      margin-top: 50px;
-      font-size: 13px;
-      color: #555;
+    @media (max-width: 900px){
+      .top{flex-direction:column;align-items:stretch}
+      .grid{grid-template-columns:1fr}
+      .badge{width:max-content}
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      backdrop-filter: blur(10px);
+    }
+    .card h3{margin:0 0 10px;font-size:15px}
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:11px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      transition:.15s transform ease,.15s background ease,.15s border-color ease;
+      font-size:14px;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16)}
+    .btn strong{font-weight:650}
+    .icon{width:18px;height:18px;flex:0 0 auto;opacity:.95}
+
+    .list{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .item{
+      padding:12px;border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .item small{display:block;margin-top:4px;color:var(--muted)}
+    code{
+      font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      padding:2px 6px;border-radius:10px;font-size:12.5px;
+    }
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12.5px;
+      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      opacity:.92;
     }
   </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"fthkrtl",
+    "url":"https://fthkrtl.github.io/",
+    "jobTitle":"Mobile App Developer",
+    "email":"mailto:fthkrtl.35@gmail.com",
+    "knowsAbout":["Android","iOS","React Native","Flutter","Mobile App Development"]
+  }
+  </script>
 </head>
 
 <body>
   <div class="wrap">
-    <h1>fthkrtl</h1>
-    <p>
-      Bu sayfa, <strong>fthkrtl</strong> tarafından geliştirilen Android uygulamalar için
-      <strong>resmî geliştirici web sitesi</strong>, <strong>destek</strong> ve
-      <strong>gizlilik politikası</strong> amacıyla hazırlanmıştır.
-    </p>
+    <div class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>F</span></div>
+        <div>
+          <h1>fthkrtl</h1>
+          <p class="sub">Mobil uygulama geliştirici • Android/iOS • Uygulama desteği ve gizlilik politikası</p>
+        </div>
+      </div>
 
-    <div class="box">
-      <h2>📩 İletişim ve Destek</h2>
-      <p>
-        Uygulamalarla ilgili her türlü destek talebi, hata bildirimi veya geri bildirim için:
-      </p>
-      <p>
-        👉 <a href="mailto:fthkrtl.35@gmail.com">fthkrtl.35@gmail.com</a>
-      </p>
+      <div class="badge" title="Play Console alanları için uygundur">
+        <span class="dot" aria-hidden="true"></span>
+        Google Play Console uyumlu sayfa
+      </div>
     </div>
 
-    <div id="privacy" class="box">
-      <h2>🔒 Gizlilik Politikası</h2>
-
+    <section class="hero">
+      <h2>Merhaba 👋</h2>
       <p>
-        fthkrtl tarafından geliştirilen uygulamalar, kullanıcı gizliliğine önem verir.
-      Bu gizlilik politikası, uygulamaların veri toplama ve kullanma esaslarını açıklar.
+        Bu sayfa, geliştirdiğim uygulamalar için resmi <strong>Developer Website</strong>,
+        <strong>Support</strong> ve <strong>Privacy Policy</strong> bağlantılarını sağlar.
+        Destek için: <a class="underline" href="mailto:fthkrtl.35@gmail.com">fthkrtl.35@gmail.com</a>
       </p>
+    </section>
 
-      <h3>Toplanan Veriler</h3>
-      <p>
-        Uygulamalar, <strong>kişisel olarak tanımlanabilir veri toplamaz</strong>.
-      Yalnızca uygulamanın düzgün çalışmasını sağlamak amacıyla,
-      <strong>anonim ve teknik veriler</strong> (örneğin hata kayıtları) toplanabilir.
-      </p>
+    <div class="grid">
+      <section class="card">
+        <h3>Hakkımda</h3>
+        <p class="muted" style="margin-top:0">
+          Android ve iOS için modern teknolojilerle (React Native / Flutter) uygulamalar geliştiriyorum.
+          Amacım sade, hızlı ve kullanıcı dostu deneyimler üretmek.
+        </p>
 
-      <h3>Üçüncü Taraf Hizmetler</h3>
-      <p>
-        Uygulamalar; performans takibi, hata analizi veya bildirim göndermek amacıyla
-        Google Firebase gibi üçüncü taraf hizmetleri kullanabilir.
-        Bu hizmetler, verileri kendi gizlilik politikalarına uygun şekilde işler.
-      </p>
+        <div class="row">
+          <a class="btn" href="#support">
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h16v12H7l-3 3V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M8 8h8M8 11h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <strong>Destek</strong>
+          </a>
 
-      <h3>Veri Güvenliği</h3>
-      <p>
-        Toplanan sınırlı veriler, yetkisiz erişime karşı korunur ve
-        üçüncü kişilerle satılmaz veya paylaşılmaz.
-      </p>
+          <a class="btn" href="#privacy">
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2 20 6v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M9.5 12.2l1.7 1.7 3.4-3.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <strong>Gizlilik</strong>
+          </a>
 
-      <h3>İletişim</h3>
-      <p>
-        Gizlilik ile ilgili sorularınız için:
-        <a href="mailto:fthkrtl.35@gmail.com">fthkrtl.35@gmail.com</a>
-      </p>
+          <a class="btn" href="mailto:fthkrtl.35@gmail.com?subject=Uygulama%20Deste%C4%9Fi">
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="m4 8 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+            <strong>E-posta</strong>
+            <span class="muted">fthkrtl.35@gmail.com</span>
+          </a>
+        </div>
+
+        <h3 style="margin-top:18px">Yayınladığım / Üzerinde Çalıştığım Uygulamalar</h3>
+        <ul class="list">
+          <li class="item">
+            <strong>Uygulama Portföyü</strong>
+            <small>
+              Buraya uygulama adlarını ekleyebilirsin. İstersen Play Store linklerini de koyarız.
+              (Örn: <code>Flowiax</code>, <code>SoloMate</code> vb.)
+            </small>
+          </li>
+          <li class="item">
+            <strong>Odak Alanları</strong>
+            <small>Üretkenlik • yardımcı araçlar • sade tasarım • performans ve stabilite</small>
+          </li>
+        </ul>
+      </section>
+
+      <aside class="card">
+        <h3>Play Console için hızlı linkler</h3>
+        <p class="muted" style="margin-top:0">
+          Aşağıdaki URL’leri Play Console’da ilgili alanlara girebilirsin:
+        </p>
+
+        <div class="item">
+          <strong>Developer Website</strong>
+          <small><code>https://fthkrtl.github.io</code></small>
+        </div>
+
+        <div class="item" style="margin-top:10px">
+          <strong>Support URL</strong>
+          <small><code>https://fthkrtl.github.io/#support</code></small>
+        </div>
+
+        <div class="item" style="margin-top:10px">
+          <strong>Privacy Policy URL</strong>
+          <small><code>https://fthkrtl.github.io/#privacy</code></small>
+        </div>
+
+        <div class="item" style="margin-top:10px">
+          <strong>Support Email</strong>
+          <small><code>fthkrtl.35@gmail.com</code></small>
+        </div>
+      </aside>
     </div>
+
+    <section id="support" class="card" style="margin-top:16px">
+      <h3>Destek</h3>
+      <p class="muted">
+        Destek almak için e-posta gönderebilirsin. Daha hızlı çözüm için mesajına şunları ekle:
+      </p>
+      <ul class="muted" style="margin:10px 0 0 18px">
+        <li>Uygulama adı ve sürümü</li>
+        <li>Cihaz modeli ve Android sürümü</li>
+        <li>Sorunun kısa açıklaması + ekran görüntüsü (varsa)</li>
+      </ul>
+
+      <div class="row" style="margin-top:14px">
+        <a class="btn" href="mailto:fthkrtl.35@gmail.com?subject=Uygulama%20Deste%C4%9Fi&body=Uygulama%20Ad%C4%B1%3A%0AS%C3%BCr%C3%BCm%3A%0ACihaz%3A%0AAndroid%20S%C3%BCr%C3%BCm%C3%BC%3A%0ASorun%3A%0A">
+          <svg class="icon" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="m4 8 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          <strong>Destek e-postası gönder</strong>
+        </a>
+      </div>
+    </section>
+
+    <section id="privacy" class="card" style="margin-top:16px">
+      <h3>Gizlilik Politikası</h3>
+      <p class="muted">
+        Bu sayfa genel bir gizlilik politikası özetidir. Uygulamanın özelliklerine göre güncellenebilir.
+      </p>
+
+      <div class="item" style="margin-top:12px">
+        <strong>Toplanan Veriler</strong>
+        <small>
+          Uygulamalar; kişisel olarak tanımlanabilir veri toplamadan çalışacak şekilde tasarlanabilir.
+          Uygulamada analiz/hata raporu kullanılıyorsa, yalnızca teknik ve anonim veriler işlenebilir.
+        </small>
+      </div>
+
+      <div class="item" style="margin-top:10px">
+        <strong>Üçüncü Taraf Hizmetler</strong>
+        <small>
+          Performans, hata analizi veya bildirim amacıyla üçüncü taraf servisler (örn. Firebase) kullanılabilir.
+          Bu servisler verileri kendi politikalarına göre işler.
+        </small>
+      </div>
+
+      <div class="item" style="margin-top:10px">
+        <strong>İletişim</strong>
+        <small>
+          Gizlilik ile ilgili talepler: <a class="underline" href="mailto:fthkrtl.35@gmail.com">fthkrtl.35@gmail.com</a>
+        </small>
+      </div>
+
+      <p class="muted" style="margin-top:12px">
+        Not: Google Play “Data safety” beyanların ile bu sayfadaki metin tutarlı olmalıdır.
+      </p>
+    </section>
 
     <footer>
-      © <span id="y"></span> fthkrtl – Tüm hakları saklıdır.
+      <div>© <span id="y"></span> fthkrtl</div>
+      <div class="muted">GitHub Pages üzerinde yayınlanır</div>
     </footer>
   </div>
 
