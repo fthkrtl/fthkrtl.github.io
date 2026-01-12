@@ -1,359 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Resmi geliştirici sayfası: uygulamalar, destek ve gizlilik." />
-  <title>Developer Landing Page</title>
+  <meta charset="UTF-8">
+  <title>Fatih Kartal | Mobile App Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fatih Kartal - Mobil uygulama geliştiricisi. Android ve iOS uygulamaları.">
   <style>
-    :root{
-      --bg:#0b1020;
-      --card:#111a33;
-      --text:#e9ecf5;
-      --muted:#b9c0d6;
-      --accent:#7aa7ff;
-      --accent2:#66e3c4;
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 20px 50px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 980px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: var(--sans);
-      background:
-        radial-gradient(900px 500px at 10% 0%, rgba(122,167,255,.22), transparent 60%),
-        radial-gradient(900px 500px at 90% 20%, rgba(102,227,196,.18), transparent 60%),
-        radial-gradient(900px 700px at 50% 100%, rgba(255,255,255,.06), transparent 60%),
-        var(--bg);
-      color: var(--text);
-      line-height:1.55;
+    .container {
+      text-align: center;
+      max-width: 500px;
+      padding: 20px;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:40px 18px 60px}
-    header{
-      display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
-      padding:14px 0 26px;
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      text-decoration:none;
+    .emoji {
+      font-size: 48px;
+      margin: 10px 0;
     }
-    .logo{
-      width:44px; height:44px; border-radius:14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 12px 30px rgba(122,167,255,.20);
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #cccccc;
     }
-    .brand strong{font-size:16px; letter-spacing:.2px}
-    .brand small{display:block; color:var(--muted); margin-top:2px}
-    nav{
-      display:flex; gap:10px; flex-wrap:wrap;
+    a {
+      color: #4da3ff;
+      text-decoration: none;
+      font-weight: bold;
     }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      border-radius: 999px;
-      text-decoration:none;
-      transition: transform .15s ease, background .15s ease;
-      font-size:14px;
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #777;
     }
-    .pill:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
-    .hero{
-      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;
-      align-items:stretch;
-      margin-top:8px;
-    }
-    @media (max-width: 860px){ .hero{grid-template-columns:1fr} }
-    .card{
-      border:1px solid var(--border);
-      background: rgba(17,26,51,.72);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:20px;
-    }
-    h1{
-      margin:0 0 10px;
-      font-size:34px;
-      line-height:1.15;
-      letter-spacing:-.3px;
-    }
-    .lead{color:var(--muted); margin:0 0 16px; font-size:15.5px}
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px;
-      border-radius: 12px;
-      border:1px solid var(--border);
-      text-decoration:none;
-      font-weight:600;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(122,167,255,.95), rgba(102,227,196,.85));
-      color:#081024;
-      border-color: transparent;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn.secondary{background: rgba(255,255,255,.06)}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    @media (max-width: 860px){ .grid{grid-template-columns:1fr} }
-    .mini h3{margin:0 0 6px; font-size:15px}
-    .mini p{margin:0; color:var(--muted); font-size:13.5px}
-    .tag{
-      display:inline-flex;
-      padding:6px 10px;
-      border-radius: 999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size:12.5px;
-      margin-top:10px;
-    }
-    .list{
-      display:flex; flex-direction:column; gap:10px; margin-top:12px;
-    }
-    .item{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-      padding:12px 12px;
-      border:1px solid var(--border);
-      border-radius: 14px;
-      background: rgba(255,255,255,.04);
-    }
-    .item strong{font-size:14px}
-    .item small{display:block; color:var(--muted); margin-top:2px}
-    .item a{white-space:nowrap; text-decoration:none; color:var(--accent)}
-    section{margin-top:18px}
-    .sectionTitle{font-size:16px; margin:0 0 10px}
-    footer{
-      margin-top:22px;
-      color:var(--muted);
-      font-size:12.5px;
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      opacity:.95;
-    }
-    .mono{font-family:var(--mono)}
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="#top" aria-label="Developer home">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <strong>YOUR DEVELOPER NAME</strong>
-          <small>Resmi geliştirici sayfası • Uygulamalar & Destek</small>
-        </div>
-      </a>
+  <div class="container">
+    <div class="emoji">🤘📱</div>
+    <h1>Fatih Kartal</h1>
+    <p>
+      Mobil uygulama geliştiricisiyim.<br>
+      Android ve iOS için modern, performanslı mobil uygulamalar geliştiriyorum.
+    </p>
 
-      <nav>
-        <a class="pill" href="#apps">Uygulamalar</a>
-        <a class="pill" href="#support">Destek</a>
-        <a class="pill" href="#privacy">Gizlilik</a>
-        <a class="pill" href="#contact">İletişim</a>
-      </nav>
-    </header>
-
-    <main id="top" class="hero">
-      <div class="card">
-        <h1>Mobil uygulamalar, sade tasarım, güvenilir deneyim.</h1>
-        <p class="lead">
-          Bu sayfa, Google Play / App Store için resmi geliştirici landing page’idir.
-          Uygulamalar, destek, gizlilik politikası ve iletişim bilgilerini tek yerde toplar.
-        </p>
-
-        <div class="ctaRow">
-          <a class="btn primary" href="#apps">Uygulamaları Gör</a>
-          <a class="btn secondary" href="#support">Destek Al</a>
-          <a class="btn secondary" href="#privacy">Gizlilik Politikası</a>
-        </div>
-
-        <div class="grid" style="margin-top:18px">
-          <div class="card mini" style="padding:16px">
-            <h3>Şeffaflık</h3>
-            <p>Politikalar ve destek süreçleri net, erişilebilir.</p>
-          </div>
-          <div class="card mini" style="padding:16px">
-            <h3>Güvenlik</h3>
-            <p>Veri minimizasyonu ve güvenli iletişim prensipleri.</p>
-          </div>
-          <div class="card mini" style="padding:16px">
-            <h3>İletişim</h3>
-            <p>Hızlı geri dönüş için tek bir destek kanalı.</p>
-          </div>
-        </div>
-
-        <span class="tag">Son güncelleme: <span class="mono">2026-01-12</span></span>
-      </div>
-
-      <div class="card">
-        <h2 class="sectionTitle">Hızlı Bilgiler</h2>
-        <div class="list">
-          <div class="item">
-            <div>
-              <strong>Destek E-posta</strong>
-              <small>support@yourdomain.com</small>
-            </div>
-            <a href="mailto:support@yourdomain.com">Mail</a>
-          </div>
-          <div class="item">
-            <div>
-              <strong>İş / İletişim</strong>
-              <small>hello@yourdomain.com</small>
-            </div>
-            <a href="mailto:hello@yourdomain.com">Mail</a>
-          </div>
-          <div class="item">
-            <div>
-              <strong>Web</strong>
-              <small>https://yourdomain.com</small>
-            </div>
-            <a href="https://yourdomain.com" rel="noopener" target="_blank">Aç</a>
-          </div>
-          <div class="item">
-            <div>
-              <strong>Konum</strong>
-              <small>Türkiye</small>
-            </div>
-            <span class="mono" style="opacity:.8">TR</span>
-          </div>
-        </div>
-
-        <section id="apps">
-          <h2 class="sectionTitle">Uygulamalar</h2>
-          <div class="list">
-            <div class="item">
-              <div>
-                <strong>App Name #1</strong>
-                <small>Kısa açıklama: uygulama ne yapar? (1 cümle)</small>
-              </div>
-              <a href="https://play.google.com/store/apps/details?id=YOUR.APP.ID" target="_blank" rel="noopener">Play Store</a>
-            </div>
-
-            <div class="item">
-              <div>
-                <strong>App Name #2</strong>
-                <small>Kısa açıklama: uygulama ne yapar? (1 cümle)</small>
-              </div>
-              <a href="https://apps.apple.com/" target="_blank" rel="noopener">App Store</a>
-            </div>
-
-            <div class="item">
-              <div>
-                <strong>Yakında</strong>
-                <small>Yeni projeler için bu alanı güncelleyebilirsin.</small>
-              </div>
-              <a href="#contact">İletişim</a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <section id="support" class="card">
-      <h2 class="sectionTitle">Destek</h2>
-      <p class="lead" style="margin-top:0">
-        Uygulamalarla ilgili sorun, ödeme/abonelik, hata bildirimi veya öneriler için:
-      </p>
-      <ul style="margin:0; padding-left:18px; color:var(--muted)">
-        <li>Destek e-posta: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></li>
-        <li>Lütfen konuya uygulama adı + sürüm + cihaz modelini ekleyin.</li>
-        <li>Geri dönüş süresi: genellikle 1–3 iş günü.</li>
-      </ul>
-    </section>
-
-    <section id="privacy" class="card">
-      <h2 class="sectionTitle">Gizlilik Politikası</h2>
-      <p class="lead" style="margin-top:0">
-       
-      </p>
-
-      <div class="grid" style="grid-template-columns: 1fr 1fr; margin-top:10px">
-        <div class="card mini" style="padding:16px">
-          <h3>Toplanan Veriler</h3>
-          <p>
-            Varsayılan olarak yalnızca uygulamanın çalışması için gerekli minimum veriler.
-            İsteğe bağlı analitik/loglar anonimleştirilebilir.
-          </p>
-        </div>
-        <div class="card mini" style="padding:16px">
-          <h3>Kullanım Amaçları</h3>
-          <p>
-            Uygulama işlevselliği, hata ayıklama, güvenlik ve kullanıcı desteği.
-            Pazarlama amaçlı veri satışı yapılmaz.
-          </p>
-        </div>
-        <div class="card mini" style="padding:16px">
-          <h3>Üçüncü Taraflar</h3>
-          <p>
-            Zorunlu servisler (ör. ödeme/analitik) varsa burada belirt.
-            Her servis kendi politikalarına tabidir.
-          </p>
-        </div>
-        <div class="card mini" style="padding:16px">
-          <h3>Silme / Talepler</h3>
-          <p>
-            Hesap silme veya veri talepleri için <a href="mailto:support@yourdomain.com">support@yourdomain.com</a> üzerinden başvurulabilir.
-          </p>
-        </div>
-      </div>
-
-      <p class="lead" style="margin:14px 0 0">
-        Not: Uygulaman hesabı/kişisel veri işliyorsa (özellikle giriş, ödeme, abonelik vb.) bu metni daha detaylı hale getirmen iyi olur.
-      </p>
-    </section>
-
-    <section id="contact" class="card">
-      <h2 class="sectionTitle">İletişim</h2>
-      <p class="lead" style="margin-top:0">
-        İş birliği, geri bildirim veya destek için aşağıdaki kanalları kullanabilirsin.
-      </p>
-
-      <div class="list">
-        <div class="item">
-          <div>
-            <strong>E-posta (Destek)</strong>
-            <small>support@yourdomain.com</small>
-          </div>
-          <a href="mailto:fthkrtl.35@gmail.com">Mail</a>
-        </div>
-        <div class="item">
-          <div>
-            <strong>E-posta (Genel)</strong>
-            <small>fthkrtl.35@gmail.com</small>
-          </div>
-          <a href="mailto:hello@yourdomain.com">Mail</a>
-        </div>
-        <div class="item">
-          <div>
-            <strong>Website</strong>
-            <small>#</small>
-          </div>
-          <a href="#" target="_blank" rel="noopener">Aç</a>
-        </div>
-      </div>
-    </section>
+    <p>
+      İletişim:<br>
+      <a href="mailto:fthkrtl.35@gmail.com">fthkrtl.35@gmail.com</a>
+    </p>
 
     <footer>
-      <div>© <span id="y"></span> Fatih KARTAL</div>
-      <div class="mono">Tüm hakları saklıdır.</div>
+      © 2026 Fatih Kartal
     </footer>
   </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
