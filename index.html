@@ -1,69 +1,103 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Fatih Kartal | Mobile App Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fatih Kartal - Mobil uygulama geliştiricisi. Android ve iOS uygulamaları.">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0f0f0f;
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      text-align: center;
-      max-width: 500px;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    .emoji {
-      font-size: 48px;
-      margin: 10px 0;
-    }
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #cccccc;
-    }
-    a {
-      color: #4da3ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #777;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatih KARTAL | Mobile App Developer</title>
+    <meta name="description" content="Fatih KARTAL - Professional Mobile Application Developer specializing in innovative solutions for Android and iOS.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="emoji">🤘📱</div>
-    <h1>Fatih Kartal</h1>
-    <p>
-      Mobil uygulama geliştiricisiyim.<br>
-      Android ve iOS için modern, performanslı mobil uygulamalar geliştiriyorum.
-    </p>
+    <div class="gradient-bg"></div>
 
-    <p>
-      İletişim:<br>
-      <a href="mailto:fthkrtl.35@gmail.com">fthkrtl.35@gmail.com</a>
-    </p>
+    <header>
+        <div class="profile-container animate" style="animation-delay: 0.1s;">
+            <img src="https://ui-avatars.com/api/?name=Fatih+Kartal&background=6366f1&color=fff&size=512" alt="Fatih KARTAL" class="profile-img">
+        </div>
+        <h1 class="animate" style="animation-delay: 0.2s;">Fatih KARTAL</h1>
+        <p class="subtitle animate" style="animation-delay: 0.3s;">Mobile Application Developer</p>
+        <div class="cta-buttons animate" style="animation-delay: 0.4s;">
+            <a href="#contact" class="btn btn-primary">İletişime Geç</a>
+            <a href="#apps" class="btn btn-outline">Uygulamalarım</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="animate">Neler Yapıyorum?</h2>
+        <div class="grid">
+            <div class="card animate" style="animation-delay: 0.1s;">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Development</h3>
+                <p>Modern ve kullanıcı dostu iOS ve Android uygulamaları geliştiriyorum.</p>
+            </div>
+            <div class="card animate" style="animation-delay: 0.2s;">
+                <i class="fas fa-code"></i>
+                <h3>Clean Code</h3>
+                <p>Sürdürülebilir ve performanslı kod mimarileri üzerine uzmanlaşıyorum.</p>
+            </div>
+            <div class="card animate" style="animation-delay: 0.3s;">
+                <i class="fas fa-rocket"></i>
+                <h3>Optimization</h3>
+                <p>Uygulama hızı ve kullanıcı deneyimini en üst seviyeye çıkarıyorum.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="apps" style="background: rgba(0,0,0,0.2);">
+        <h2 class="animate">Uygulamalarım</h2>
+        <div class="grid">
+            <div class="card animate" style="animation-delay: 0.1s;">
+                <div style="height: 200px; background: var(--glass); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-google-play" style="font-size: 3rem;"></i>
+                </div>
+                <h3>Çok Yakında</h3>
+                <p>Google Play Store üzerinde yayınlanacak ilk uygulamalarım için hazırlıklar devam ediyor.</p>
+            </div>
+            <!-- More app placeholders can be added here -->
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="animate">İletişim</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;" class="animate">
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">
+                Yeni projeler, iş birliği veya sadece merhaba demek için bana ulaşabilirsiniz.
+            </p>
+            <a href="mailto:fthkrtl.35@gmail.com" class="btn btn-primary" style="display: inline-block;">
+                <i class="fas fa-envelope" style="margin-right: 10px;"></i> fthkrtl.35@gmail.com
+            </a>
+        </div>
+    </section>
 
     <footer>
-      © 2026 Fatih Kartal
+        <div class="social-links">
+            <a href="https://github.com"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2026 Fatih KARTAL. Tüm hakları saklıdır.</p>
     </footer>
-  </div>
+
+    <script>
+        // Simple scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
